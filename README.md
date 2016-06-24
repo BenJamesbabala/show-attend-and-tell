@@ -1,5 +1,6 @@
 # show_attend_and_tell
-Implemetation of (*K. Xu, Show, attend, and Tell*)[http://arxiv.org/abs/1502.03044] with tensorflow
+Implemetation of [*K. Xu, Show, attend, and Tell*](http://arxiv.org/abs/1502.03044) with tensorflow
+
 **Not Completed Yet**
 
 #####reference
