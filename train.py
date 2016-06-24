@@ -189,12 +189,7 @@ def run_caption_model():
             current_images = images_list[step][shuffler]
             current_mask_matrix = mask_list[step][shuffler]
             current_maxlen = maxlen[step]
-            """
-            if step==0:
-                print ("length is %d ~ %d" % (0, maxlen[step]))
-            else:
-                print ("length is %d ~ %d" % (maxlen[step-1], maxlen[step]))
-            """
+            
             context, sentence, mask, train_op, loss_op, gen_words_op, l, h = operations[current_maxlen]
 
             # current_images :          [batch_size, 1, 4096]
@@ -215,8 +210,6 @@ def run_caption_model():
                             mask:current_mask_matrix})
             avg_score = 0.0
             sentences = []
-            #print (logits)
-            #print (onehot_labels)
             
             for (w, c) in zip(words, current_caption_matrix):
                 score, gen_sentence, ref_sentence = \
@@ -226,11 +219,7 @@ def run_caption_model():
                 
             avg_score /= len(sentences)
             
-            #print (words[0])
-            #print (current_caption_matrix[0])
-
             if summary_version:
-                print (sentences[0])
                 return loss, avg_score, sentences, summary_string
             else:
                 return loss, avg_score, sentences

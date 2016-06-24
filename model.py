@@ -121,26 +121,6 @@ class Caption_Model(object):
                     stddev = math.sqrt(2.0/n_in)
                 clipped = tf.clip_by_value(grad, -5 * stddev, 5 * stddev) 
                 grads[idx] = (clipped, var)
-        """
-        if grad:
-      if var.get_shape().dims == 1:
-        stddev = 0.3
-      else:
-        n_in = 1
-        for d in var.get_shape().as_list()[:-1]:
-          n_in *= d
-        stddev = math.sqrt(2.0 / n_in)
-
-      clipped = tf.clip_by_value(grad, -5 * stddev, 5 * stddev)
-
-      tf.histogram_summary(var.op.name + '/gradients', clipped)
-      tf.scalar_summary(var.op.name + '/grdient norm',
-                        tf.sqrt(tf.nn.l2_loss(clipped)))
-      grads[idx] = (clipped, var)
-
-
-        """
-
         return grads
     
     def train(self, total_loss, lr, global_step):
