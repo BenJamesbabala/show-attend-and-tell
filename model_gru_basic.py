@@ -2,9 +2,10 @@ import tensorflow as tf, numpy as np
 from model import Caption_Model
 
 class Caption_Model_GRU(Caption_Model):
-    def __init__(self):
-        pass
-    
+    def __init__(self, n_words, dim_embed, dim_ctx0, dim_ctx1, dim_hidden, batch_size, ix_to_word, bias_init_vector):
+        super(Caption_Model_GRU, self).__init__(n_words, dim_embed, dim_ctx0, dim_ctx1, dim_hidden, batch_size, ix_to_word, bias_init_vector)
+
+   
     def _init_rnn(self, mean_context):
         with tf.variable_scope('init_gru') as scope:
             init_hidden_W = self._variable_trunc_normal('hidden_W',
