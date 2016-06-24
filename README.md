@@ -3,11 +3,11 @@ Implemetation of [*K. Xu, Show, attend, and Tell*](http://arxiv.org/abs/1502.030
 
 **Not Completed Yet**
 
-#####reference
+###reference
 author's source code with Theano : https://github.com/kelvinxu/arctic-captions
 source code with Tensorflow : https://github.com/jazzsaxmafia/show_attend_and_tell.tensorflow
 
-#####code
+###code
 train.py : main codes for training and evaluating performance
 model.py : Caption_model, main model with Word embedding, RNN with soft-attention, decoding
 model_lstm_basic.py : Caption_model_LSTM, Child Class of Caption_model
